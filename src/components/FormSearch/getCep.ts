@@ -1,3 +1,5 @@
+"use client"
+
 export const getCep = async (cep: string) => {
     try{
         const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`)
@@ -9,6 +11,7 @@ export const getCep = async (cep: string) => {
 
         return {data , status: true}
     } catch (err) {
-        return {errorMsg: "Formato do CEP inválido", status: false}
+        console.log("ERRO: " + err)
+        return {msg: "Formato do CEP inválido", status: false}
     }
 }
